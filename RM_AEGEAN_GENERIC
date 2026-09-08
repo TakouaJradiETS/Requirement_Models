@@ -59,12 +59,6 @@
 
             "late_scheduled_tasks": "<list | null>",    // This replaces "maintenance_task_importance", because for AEGEAN, priority means that some tasks are expensive and should therefore be scheduled as close as possible to their due date.
 
-            "base_cost_deviation": {                   // This field is not clear for the partner, and they want us to define "base_cost_deviation". We can delete it if it is possible and not mandatory.
-                "operator": "<enum: >= | > | <= | < | == | null>",
-                "value":    "<number | null>",
-                "unit":     "<enum: % | EUR | null>"
-            },
-
             "supplier": {         // MRO selection is not considered in this intent, so this field will always be mapped from the KG. The user cannot ask for a specific MRO.
                 "location": "<string | null>",
                 "capacity": {
