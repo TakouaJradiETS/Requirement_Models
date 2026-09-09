@@ -9,7 +9,6 @@
   "order_properties": {
     "production": {
       "mode": "<enum: on_site | off_site | hybrid | null>",
-      "impact_resistance": "<boolean | null>",
       "start_date": {
         "after": {
           "type": "<enum: absolute | relative | null>",
@@ -118,14 +117,6 @@
           "unit": "<enum: percent | null>"
         }
       },
-      "cost": {
-        "operator": "<enum: <= | >= | = | between | null>",
-        "value": "<float | null>",
-        "min_value": "<float | null>",
-        "max_value": "<float | null>",
-        "unit": "<enum: EUR | null>"
-      }
-    },
     "preferences": {
       "quality": "<float | null>",
       "cost": "<float | null>",
