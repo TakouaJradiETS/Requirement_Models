@@ -1,136 +1,136 @@
 {
-  "OrderId": "<string>",
-  "Domain": "<enum: additive_manufacturing>",
-  "Goal": "<enum: OrderPlan>",
-  "Mode": "<enum: manual | automatic>",
-  "Trigger": {
-    "Condition": "<enum: OrderSubmitted>"
+  "orderId": "<string>",
+  "domain": "<enum: additive_manufacturing>",
+  "goal": "<enum: OrderPlan>",
+  "mode": "<enum: manual | automatic>",
+  "trigger": {
+    "condition": "<enum: OrderSubmitted>"
   },
-  "OrderProperties": {
-    "Product": [
+  "orderProperties": {
+    "product": [
       {
-        "Label": "<string | null>",
-        "Quantity": "<integer | null>",
-        "WallThickness": {
-          "Value": "<float | null>",
-          "Unit": "<enum: meter | millimeter | centimeter | null>"
+        "label": "<string | null>",
+        "quantity": "<integer | null>",
+        "wallThickness": {
+          "value": "<float | null>",
+          "unit": "<enum: meter | millimeter | centimeter | null>"
         },
-        "Dimensions": [
+        "dimensions": [
           {
-            "Name": "<enum: length | width | height | radius | diameter | thickness>",
-            "Value": "<float>",
-            "Unit": "<enum: meter | millimeter | centimeter>"
+            "name": "<enum: length | width | height | radius | diameter | thickness>",
+            "value": "<float>",
+            "unit": "<enum: meter | millimeter | centimeter>"
           }
         ],
-        "Material": {
-          "Label": "<enum: concrete | metal | polymer | composite | other | null>",
-          "CertificationCompliance": "<float | null>",
-          "CostPerKg": "<float | null>",
-          "EarlyAgeCompressiveStrengthAt24h": "<float | null>",
-          "Quality": "<float | null>"
+        "material": {
+          "label": "<enum: concrete | metal | polymer | composite | other | null>",
+          "certificationCompliance": "<float | null>",
+          "costPerKg": "<float | null>",
+          "earlyAgeCompressiveStrengthAt24h": "<float | null>",
+          "quality": "<float | null>"
         }
       }
     ],
-    "DeliveryDatetime": {
-      "After": {
-        "Type": "<enum: absolute | relative | null>",
-        "Date": "<ISO-8601 datetime | null>",
-        "Duration": {
-          "Value": "<float | null>",
-          "Unit": "<enum: hours | days | weeks | months | years | null>"
+    "deliveryDatetime": {
+      "after": {
+        "type": "<enum: absolute | relative | null>",
+        "date": "<ISO-8601 datetime | null>",
+        "duration": {
+          "value": "<float | null>",
+          "unit": "<enum: hours | days | weeks | months | years | null>"
         },
-        "ReferenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+        "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
       },
-      "Before": {
-        "Type": "<enum: absolute | relative | null>",
-        "Date": "<ISO-8601 datetime | null>",
-        "Duration": {
-          "Value": "<float | null>",
-          "Unit": "<enum: hours | days | weeks | months | years | null>"
+      "before": {
+        "type": "<enum: absolute | relative | null>",
+        "date": "<ISO-8601 datetime | null>",
+        "duration": {
+          "value": "<float | null>",
+          "unit": "<enum: hours | days | weeks | months | years | null>"
         },
-        "ReferenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+        "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
       }
     },
-    "DeliveryLocation": {
-      "StreetName": "<string | null>",
-      "StreetNumber": "<string | null>",
-      "Zipcode": "<string | null>",
-      "Region": "<string | null>",
-      "Country": "<string | null>"
+    "deliveryLocation": {
+      "streetName": "<string | null>",
+      "streetNumber": "<string | null>",
+      "zipcode": "<string | null>",
+      "region": "<string | null>",
+      "country": "<string | null>"
     }
   },
-  "Intent": {
-    "Constraints": {
-      "Supplier": {
-        "Label": "<string | null>",
-        "EnvironmentalSustainabilityPerformance": "<integer | null>",
-        "HasLocation": "<string | null>",
-        "MinimumTransportQuantity": "<integer | null>",
-        "OnTimeDeliveryReliability": "<integer | null>",
-        "SupplyLeadTime": "<integer | null>"
+  "intent": {
+    "constraints": {
+      "supplier": {
+        "label": "<string | null>",
+        "environmentalSustainabilityPerformance": "<integer | null>",
+        "hasLocation": "<string | null>",
+        "minimumTransportQuantity": "<integer | null>",
+        "onTimeDeliveryReliability": "<integer | null>",
+        "supplyLeadTime": "<integer | null>"
       },
-      "ProcessConfiguration": {
-        "Label": "<string | null>",
-        "EnergyCost": "<float | null>",
-        "TotalCost": "<float | null>",
-        "TotalPrintingTime": "<float | null>",
-        "TransportCost": "<float | null>",
-        "TransportCostANVValidated": "<float | null>"
+      "processConfiguration": {
+        "label": "<string | null>",
+        "energyCost": "<float | null>",
+        "totalCost": "<float | null>",
+        "totalPrintingTime": "<float | null>",
+        "transportCost": "<float | null>",
+        "transportCostANVValidated": "<float | null>"
       },
-      "Labor": {
-        "Label": "<float | null>",
-        "ResourceCost": "<float | null>",
-        "ResourceCostANVValidated": "<float | null>"
+      "labor": {
+        "label": "<float | null>",
+        "resourceCost": "<float | null>",
+        "resourceCostANVValidated": "<float | null>"
       },
-      "Production": {
-        "Mode": "<enum: on_site | off_site | hybrid | null>",
-        "StartDate": {
-          "After": {
-            "Type": "<enum: absolute | relative | null>",
-            "Date": "<ISO-8601 datetime | null>",
-            "Duration": {
-              "Value": "<float | null>",
-              "Unit": "<enum: hours | days | weeks | months | years | null>"
+      "production": {
+        "mode": "<enum: on_site | off_site | hybrid | null>",
+        "startDate": {
+          "after": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
             },
-            "ReferenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
           },
-          "Before": {
-            "Type": "<enum: absolute | relative | null>",
-            "Date": "<ISO-8601 datetime | null>",
-            "Duration": {
-              "Value": "<float | null>",
-              "Unit": "<enum: hours | days | weeks | months | years | null>"
+          "before": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
             },
-            "ReferenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
           }
         },
-        "EndDate": {
-          "After": {
-            "Type": "<enum: absolute | relative | null>",
-            "Date": "<ISO-8601 datetime | null>",
-            "Duration": {
-              "Value": "<float | null>",
-              "Unit": "<enum: hours | days | weeks | months | years | null>"
+        "endDate": {
+          "after": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
             },
-            "ReferenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
           },
-          "Before": {
-            "Type": "<enum: absolute | relative | null>",
-            "Date": "<ISO-8601 datetime | null>",
-            "Duration": {
-              "Value": "<float | null>",
-              "Unit": "<enum: hours | days | weeks | months | years | null>"
+          "before": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
             },
-            "ReferenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
           }
         }
       }
     },
-    "Preferences": {
-      "Quality": "<float | null>",
-      "Cost": "<float | null>",
-      "Delivery": "<float | null>",
-      "Green": "<float | null>"
+    "preferences": {
+      "quality": "<float | null>",
+      "cost": "<float | null>",
+      "delivery": "<float | null>",
+      "green": "<float | null>"
     }
   }
 }
