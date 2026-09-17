@@ -1,62 +1,17 @@
 {
-  "order_id": "<string>",
+  "orderId": "<string>",
   "domain": "<enum: additive_manufacturing>",
   "goal": "<enum: OrderPlan>",
   "mode": "<enum: manual | automatic>",
   "trigger": {
     "condition": "<enum: OrderSubmitted>"
   },
-  "order_properties": {
-    "production": {
-      "mode": "<enum: on_site | off_site | hybrid | null>",
-      "impact_resistance": "<boolean | null>",
-      "start_date": {
-        "after": {
-          "type": "<enum: absolute | relative | null>",
-          "date": "<ISO-8601 datetime | null>",
-          "duration": {
-            "value": "<float | null>",
-            "unit": "<enum: hours | days | weeks | months | years | null>"
-          },
-          "reference_event": "<enum: order_submission | contract_signature | production_start | null>"
-        },
-        "before": {
-          "type": "<enum: absolute | relative | null>",
-          "date": "<ISO-8601 datetime | null>",
-          "duration": {
-            "value": "<float | null>",
-            "unit": "<enum: hours | days | weeks | months | years | null>"
-          },
-          "reference_event": "<enum: order_submission | contract_signature | production_start | null>"
-        }
-      },
-      "end_date": {
-        "after": {
-          "type": "<enum: absolute | relative | null>",
-          "date": "<ISO-8601 datetime | null>",
-          "duration": {
-            "value": "<float | null>",
-            "unit": "<enum: hours | days | weeks | months | years | null>"
-          },
-          "reference_event": "<enum: order_submission | contract_signature | production_start | null>"
-        },
-        "before": {
-          "type": "<enum: absolute | relative | null>",
-          "date": "<ISO-8601 datetime | null>",
-          "duration": {
-            "value": "<float | null>",
-            "unit": "<enum: hours | days | weeks | months | years | null>"
-          },
-          "reference_event": "<enum: order_submission | contract_signature | production_start | null>"
-        }
-      }
-    },
-    "items": [
+  "orderProperties": {
+    "product": [
       {
-        "item_id": "<string>",
-        "object_type": "<string | null>",
-        "quantity": "<integer>",
-        "wall_thickness": {
+        "label": "<string | null>",
+        "quantity": "<integer | null>",
+        "wallThickness": {
           "value": "<float | null>",
           "unit": "<enum: meter | millimeter | centimeter | null>"
         },
@@ -66,10 +21,17 @@
             "value": "<float>",
             "unit": "<enum: meter | millimeter | centimeter>"
           }
-        ]
+        ],
+        "material": {
+          "label": "<enum: concrete | metal | polymer | composite | other | null>",
+          "certificationCompliance": "<float | null>",
+          "costPerKg": "<float | null>",
+          "earlyAgeCompressiveStrengthAt24h": "<float | null>",
+          "quality": "<float | null>"
+        }
       }
     ],
-    "delivery_datetime": {
+    "deliveryDatetime": {
       "after": {
         "type": "<enum: absolute | relative | null>",
         "date": "<ISO-8601 datetime | null>",
@@ -77,7 +39,7 @@
           "value": "<float | null>",
           "unit": "<enum: hours | days | weeks | months | years | null>"
         },
-        "reference_event": "<enum: order_submission | contract_signature | production_start | null>"
+        "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
       },
       "before": {
         "type": "<enum: absolute | relative | null>",
@@ -86,16 +48,12 @@
           "value": "<float | null>",
           "unit": "<enum: hours | days | weeks | months | years | null>"
         },
-        "reference_event": "<enum: order_submission | contract_signature | production_start | null>"
+        "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
       }
     },
-    "material": {
-      "family": "<enum: concrete | metal | polymer | composite | other | null>",
-      "type": "<enum: standard | uhpc | reinforced_concrete | null>"
-    },
-    "location": {
-      "street_name": "<string | null>",
-      "street_number": "<string | null>",
+    "deliveryLocation": {
+      "streetName": "<string | null>",
+      "streetNumber": "<string | null>",
       "zipcode": "<string | null>",
       "region": "<string | null>",
       "country": "<string | null>"
@@ -103,27 +61,69 @@
   },
   "intent": {
     "constraints": {
-      "printing_duration": {
-        "operator": "<enum: <= | >= | = | between | null>",
-        "value": "<float | null>",
-        "min_value": "<float | null>",
-        "max_value": "<float | null>",
-        "unit": "<enum: hours | days | weeks | months | years | null>"
-      },
       "supplier": {
-        "location": "<string | null>",
-        "stability": {
-          "operator": "<enum: <= | >= | = | between | null>",
-          "value": "<float | null>",
-          "unit": "<enum: percent | null>"
-        }
+        "label": "<string | null>",
+        "environmentalSustainabilityPerformance": "<integer | null>",
+        "hasLocation": "<string | null>",
+        "minimumTransportQuantity": "<integer | null>",
+        "onTimeDeliveryReliability": "<integer | null>",
+        "supplyLeadTime": "<integer | null>"
       },
-      "cost": {
-        "operator": "<enum: <= | >= | = | between | null>",
-        "value": "<float | null>",
-        "min_value": "<float | null>",
-        "max_value": "<float | null>",
-        "unit": "<enum: EUR | null>"
+      "processConfiguration": {
+        "label": "<string | null>",
+        "energyCost": "<float | null>",
+        "totalCost": "<float | null>",
+        "totalPrintingTime": "<float | null>",
+        "transportCost": "<float | null>",
+        "transportCostANVValidated": "<float | null>"
+      },
+      "labor": {
+        "label": "<float | null>",
+        "resourceCost": "<float | null>",
+        "resourceCostANVValidated": "<float | null>"
+      },
+      "production": {
+        "mode": "<enum: on_site | off_site | hybrid | null>",
+        "startDate": {
+          "after": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
+            },
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+          },
+          "before": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
+            },
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+          }
+        },
+        "endDate": {
+          "after": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
+            },
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+          },
+          "before": {
+            "type": "<enum: absolute | relative | null>",
+            "date": "<ISO-8601 datetime | null>",
+            "duration": {
+              "value": "<float | null>",
+              "unit": "<enum: hours | days | weeks | months | years | null>"
+            },
+            "referenceEvent": "<enum: order_submission | contract_signature | production_start | null>"
+          }
+        }
       }
     },
     "preferences": {
